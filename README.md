@@ -1,8 +1,8 @@
 ansible-duply-backup
 ====================
 
-[![Build Status](http://img.shields.io/travis/Stouts/Stouts.backup.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.backup)
-[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.backup-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/945)
+[![Build Status](https://img.shields.io/travis/newtonne/ansible-duply-backup.svg?style=flat-square)](https://travis-ci.org/newtonne/ansible-duply-backup)
+[![Ansible Role](https://img.shields.io/ansible/role/22755.svg?style=flat-square)](https://galaxy.ansible.com/newtonne/duply-backup/)
 
 Ansible role which uses Duply to backup files, PostgreSQL, MySQL and MongoDB databases to any backend supported by Duply.
 
