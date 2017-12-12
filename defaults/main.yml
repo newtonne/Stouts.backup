@@ -11,6 +11,9 @@ backup_home: /etc/duply             # Backup configuration directory
 backup_work: /var/duply             # Working directory
 backup_temp_dir: /tmp
 
+backup_optional_dependencies: []    # List of packages like python-boto which are
+                                    # only required for specific backends
+
 backup_duplicity_pkg: duplicity
 backup_duplicity_version:       # Set duplicity version
 
