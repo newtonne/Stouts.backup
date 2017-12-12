@@ -34,6 +34,8 @@ backup_profiles: []           # Setup backup profiles
                               #         source: /var/www
                               #         max_age: 10D
                               #         target: s3://my.bucket/www
+                              #         params:
+                              #           - --s3-european-buckets
                               #         exclude:
                               #           - *.pyc
                               #       - name: postgresql
