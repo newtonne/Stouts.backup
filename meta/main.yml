@@ -3,9 +3,8 @@
 dependencies: []
 
 galaxy_info:
-  author: klen
-  company: Stouts
-  description: Backup system. Files, dirs, databases. Upload to clouds.
+  author: newtonne
+  description: Backup files and databases using Duply (Duplicity).
   license: MIT
   platforms:
   - name: Ubuntu

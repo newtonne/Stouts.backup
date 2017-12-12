@@ -1,11 +1,16 @@
-Stouts.backup
-=============
+ansible-duply-backup
+====================
 
 [![Build Status](http://img.shields.io/travis/Stouts/Stouts.backup.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.backup)
 [![Galaxy](http://img.shields.io/badge/galaxy-Stouts.backup-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/945)
 
-Ansible role which manage backups. Support file backups, postgresql, mysql, mongo db backups.
+Ansible role which uses Duply to backup files, PostgreSQL, MySQL and MongoDB databases to any backend supported by Duply.
 
+Forked from [Stouts/Stouts.backup](https://github.com/Stouts/Stouts.backup).
+
+## Requirements
+
+This role installs only Duply and Duplicity by default. Depending on the backend you are using, it is likely that additional dependecies will be required. These requirements can be specified in `backup_optional_dependencies`, and a complete list can be found on the [Duplicity Man Page](http://duplicity.nongnu.org/duplicity.1.html#sect30).
 
 ## Variables
 
@@ -22,7 +27,7 @@ backup_group: "{{backup_user}}"
 backup_home: /etc/duply         # Backup configuration directory
 backup_work: /var/duply         # Working directory
 
-backup_duplicity_ppa: ppa:duplicity-team/ppa  # Set empty for skipping PPA addition
+backup_duplicity_ppa: false     # Set to true to add the duplicity-team PPA
 backup_duplicity_pkg: duplicity
 backup_duplicity_version:       # Set duplicity version
 
@@ -46,7 +51,7 @@ backup_profiles: []           # Setup backup profiles
                               #         max_age: 10D
                               #         target: s3://my.bucket/www
                               #         params:
-                              #           - "BEST_PASSWORD={{ best_password }}"
+                              #           - --s3-european-buckets
                               #         exclude:
                               #           - *.pyc
                               #       - name: postgresql
@@ -55,7 +60,7 @@ backup_profiles: []           # Setup backup profiles
                               #         source: postgresql://db_name
                               #         target: s3://my.bucket/postgresql
 
-# Default values (overide them in backup profiles bellow) 
+# Default values (overide them in backup profiles below) 
 # =======================================================
 # (every value can be replaced in jobs individually)
 
@@ -109,7 +114,7 @@ backup_exclude: [] # List of filemasks to exlude
 
 ## Usage
 
-Add `Stouts.backup` to your roles and set variables in your playbook file.
+Add `duply-backup` to your roles and set variables in your playbook file.
 
 Example:
 
@@ -118,7 +123,7 @@ Example:
 - hosts: all
 
   roles:
-    - Stouts.backup
+    - duply-backup
 
   vars:
     backup_target_user: aws_access_key
@@ -152,19 +157,11 @@ Load backup for profile `postgresql` from cloud and restore database (logged as 
 
 Also see `duply usage`
 
-
 ## License
 
 Licensed under the MIT License. See the LICENSE file for details.
 
 ## Feedback, bug-reports, requests, ...
 
-Are [welcome](https://github.com/Stouts/Stouts.backup/issues)!
+Are [welcome](https://github.com/newtonne/ansible-duply-backup/issues)!
 
-If you wish to express your appreciation for the role, you are welcome to send
-a postcard to:
-
-    Kirill Klenov
-    pos. Severny 8-3
-    MO, Istra, 143500
-    Russia

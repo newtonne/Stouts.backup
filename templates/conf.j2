@@ -66,7 +66,7 @@ DUPL_PARAMS="$DUPL_PARAMS --volsize $VOLSIZE "
 
 # Add params needed for target or backup process.
 {% for param in item.params|default([]) %}
-{{ param }}
+DUPL_PARAMS="$DUPL_PARAMS {{param}} "
 {% endfor %}
 
 # temporary file space. at least the size of the biggest file in backup

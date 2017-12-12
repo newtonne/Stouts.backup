@@ -11,6 +11,9 @@ backup_home: /etc/duply             # Backup configuration directory
 backup_work: /var/duply             # Working directory
 backup_temp_dir: /tmp
 
+backup_optional_dependencies: []    # List of packages like python-boto which are
+                                    # only required for specific backends
+
 backup_duplicity_pkg: duplicity
 backup_duplicity_version:       # Set duplicity version
 
@@ -34,6 +37,8 @@ backup_profiles: []           # Setup backup profiles
                               #         source: /var/www
                               #         max_age: 10D
                               #         target: s3://my.bucket/www
+                              #         params:
+                              #           - --s3-european-buckets
                               #         exclude:
                               #           - *.pyc
                               #       - name: postgresql
