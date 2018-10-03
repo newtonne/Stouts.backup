@@ -2089,7 +2089,7 @@ esac
 
 
 # for all protocols we put username in url and pass into env var 
-# for secúrity reasons, we url_encode username to protect special chars
+# for security reasons, we url_encode username to protect special chars
 # first sortout backends with special ways to handle password
 case "$(tolower "${TARGET_URL_PROT%%:*}")" in
   'imap'|'imaps')
